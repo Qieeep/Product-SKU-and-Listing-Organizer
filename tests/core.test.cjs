@@ -1,0 +1,10 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict');
+const {process}=require('../core.js');
+const {parseCSV,csv,crc32,day}=require('../common.js');
+const sample=require('../examples/data.json');
+const fresh=()=>JSON.parse(JSON.stringify(sample));
+test('核心结果与业务边界',()=>{const d=fresh(),r=process(d);assert.equal(r.rows.length,4);assert.equal(r.rows[0][0],'CUP-01-01');assert.equal(r.rows[3][0],'CUP-02-02');assert.ok(r.files[0].text.includes('350ml'));});
+test('无效输入被明确拒绝',()=>{const d=fresh();d.colors='黑色\n黑色';assert.throws(()=>process(d),/重复/);});
+test('CSV往返与表格公式隔离',()=>{const t=csv(['名称','说明'],[['水杯','含逗号,与换行\n及"引号"'],['=1+1','值']]);const parsed=parseCSV(t);assert.equal(parsed[1][1],'含逗号,与换行\n及"引号"');assert.equal(parsed[2][0],"'=1+1");assert.throws(()=>parseCSV('"unfinished'));});
+test('ZIP校验和与真实日期验证',()=>{assert.equal(crc32(new TextEncoder().encode('123456789')),0xcbf43926);assert.throws(()=>day('2026-02-30'));assert.equal(day('2024-02-29'),Date.UTC(2024,1,29));});

@@ -1,0 +1,40 @@
+{
+  "format": "opc-offline-backup",
+  "version": 1,
+  "project": "A04",
+  "data": {
+    "_files": {},
+    "prefix": "CUP",
+    "title": "旅行水杯",
+    "colors": "黑色\n白色",
+    "sizes": "350ml\n500ml",
+    "price": 29.9,
+    "stock": 20,
+    "mapping": [
+      {
+        "source": "sku",
+        "target": "SKU"
+      },
+      {
+        "source": "title",
+        "target": "标题"
+      },
+      {
+        "source": "color",
+        "target": "颜色"
+      },
+      {
+        "source": "size",
+        "target": "容量"
+      },
+      {
+        "source": "price",
+        "target": "售价"
+      },
+      {
+        "source": "stock",
+        "target": "库存"
+      }
+    ]
+  }
+}

@@ -1,6 +1,3 @@
-[Uploading README.md…]()
-# Product-SKU-and-Listing-Organizer
-Product SKU and Listing Organizer:Generate product specification combinations in bulk and export the product listing sheet with custom column names.------浙创OPC创业社区
 # 商品SKU与上架表整理器
 
 批量生成规格组合，按自定义列名导出商品上架表。

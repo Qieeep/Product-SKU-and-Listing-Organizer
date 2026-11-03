@@ -1,0 +1,18 @@
+{
+  "name": "sku-matrix",
+  "version": "1.0.2",
+  "description": "批量生成规格组合，按自定义列名导出商品上架表。",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test tests/core.test.cjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "offline",
+    "browser",
+    "local-first",
+    "tool"
+  ]
+}
